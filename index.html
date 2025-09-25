@@ -1,0 +1,1025 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap in Self Stack</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .navbar {
+            margin-top: 1vw;
+        }
+
+        .navbar-nav {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            font-weight: 700 !important;
+        }
+
+        .active1 {
+            margin-left: 1vw;
+            font-size: large;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s ease;
+            z-index: 1;
+            border-radius: 0%;
+            border: 1px solid #dc3545;
+        }
+
+        .btn1 {
+            color: white;
+            background-color: #ed2a4f;
+
+        }
+
+        .active1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: #020202 !important;
+            transition: left 0.2s ease !important;
+            z-index: -1;
+
+        }
+
+        .active1:hover::before {
+            left: 0;
+        }
+
+
+        .btn1:hover {
+            color: white;
+            border: 1px solid #dc3545;
+            background-color: rgb(255, 0, 0);
+
+        }
+
+        .btn2:hover {
+            color: white;
+            border: 1px solid #dc3545;
+
+        }
+
+        /* MARQUEE FOR ROW OF IMGS */
+
+        .marquee img {
+            margin-right: 1rem;
+            width: 20rem;
+            height: 20rem;
+        }
+
+        /* TEDA MEDA TEXT */
+
+        .upper:hover {
+            color: #fff !important;
+            background: #000;
+        }
+
+        .upper {
+            transform: rotate(-2deg) !important;
+            background-color: #ccc7d6
+        }
+
+        .under:hover,
+        .upper:hover {
+            transform: scale(1.05) !important;
+        }
+
+        .card-group .card {
+            border: 1px solid #000 !important;
+        }
+
+        .card-main:hover {
+            transform: rotate(2deg);
+        }
+
+        .card-inside:hover {
+            transform: rotate(-5deg);
+        }
+
+        /* SOME FOLDING THINGY?? */
+
+        .top {
+            top: 50px;
+            position: sticky;
+        }
+
+        .hover-slide {
+            background: linear-gradient(to right, #000 50%, #ed2a4f 50%) !important;
+            background-size: 200% 100% !important;
+            background-position: right bottom !important;
+            transition: background-position 0.1s ease-out !important;
+        }
+
+        .hover-slide:hover {
+            background-position: left bottom !important;
+        }
+
+        .same {
+            top: 50px;
+            ;
+            position: sticky;
+            background-color: #ccc7d6;
+            transform: rotate(-2deg);
+            padding: 1rem;
+        }
+
+        .same2 {
+            top: 50px;
+            ;
+            position: sticky;
+            background-color: #aea7bf;
+            transform: rotate(2deg);
+            padding: 1rem;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- TOP NAV BAR FROM BOOTSTRAP-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <img class="navbar-brand"
+                src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/84ec08e8-34e9-42c7-9445-d2806d156403/fac575ac-7a41-484f-b7ac-875042de11f8?org_if_sml=1&force_format=original"></img>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Try</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">These</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Hover</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Effect</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <button class="btn active1 btn1" type="submit">Action 1</button>
+                    <button class="btn active1 btn2" type="submit">Action 2</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+        </script>
+
+    <section id="sportlight" class="container">
+        <h1 class="fw-bold text-center mt-5">Welcome to Selfstack Bootstrap Website Design</h1>
+        <p class="text-center mt-4">Explore the power of Bootstrap with our collection of essential features for modern
+            website design.</p>
+        <div class="box text-center mt-4">
+            <button type="button" class="bottonb fw-bold me-2 btn btn-danger rounded-0">Main Action</button>
+            <button type="button" class="bottonb fw-bold rounded-0 btn btn-outline-danger">Secondary Action</button>
+        </div>
+    </section>
+
+    <!-- ROW OF IMAGES -->
+
+    <section class="marquee my-5">
+        <section class="container-fluid">
+            <div class="row">
+                <marquee class="my-2" onMouseOver="this.stop()" onmouseout="this.start()" behavior="scroll" direction=""
+                    scrollamount="20" >
+                    <img src="https://images.unsplash.com/photo-1474557157379-8aa74a6ef541?q=80&w=1080" alt="">
+                    <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1080" alt="">
+                    <img src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2?q=80&w=1080" alt="">
+                    <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=1080" alt="">
+                    <img src="https://images.unsplash.com/photo-1416339442236-8ceb164046f8?q=80&w=1080" alt="">
+                    <img src="https://images.unsplash.com/photo-1653974123177-fe9c05fb79e6?q=80&w=1080" alt="">
+                </marquee>
+                <marquee class="my-2" direction="right" onMouseOver="this.stop()" onmouseout="this.start()"
+                    behavior="scroll" direction="" scrollamount="20" >
+                    <img src="https://images.unsplash.com/photo-1657783092568-23ea7dbb7847?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4N3w&ixlib=rb-4.1.0&q=80&w=1080"
+                        alt="">
+                    <img src="https://images.unsplash.com/photo-1503428593586-e225b39bddfe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4N3w&ixlib=rb-4.1.0&q=80&w=1080"
+                        alt="">
+                    <img src="https://images.unsplash.com/photo-1495837174058-628aafc7d610?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4Nnw&ixlib=rb-4.1.0&q=80&w=1080"
+                        alt="">
+                    <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4N3w&ixlib=rb-4.1.0&q=80&w=1080"
+                        alt="">
+                    <img src="https://images.unsplash.com/photo-1487700160041-babef9c3cb55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4NXw&ixlib=rb-4.1.0&q=80&w=1080"
+                        alt="">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4OHw&ixlib=rb-4.1.0&q=80&w=1080"
+                        alt="">
+                </marquee>
+            </div>
+        </section>
+    </section>
+
+    <!-- THREE TEXT AND CLICK TO VIEW IMG -->
+
+    <section id="my-4 py-4">
+
+        <div class="container acol">
+
+            <div class="row">
+
+                <div class="col-lg-10 offset-lg-1">
+
+                    <div class="accordion " id="accordionExample">
+
+                        <div class="accordion-item d-md-flex flex-row-reverse border border-0 align-items-center">
+
+                            <div class="accordion-header col-md-6">
+
+                                <button class="border-0 fs-4 fw-bold text-dark bg-white" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
+                                    aria-controls="collapseOne">
+                                    <!-- data-bs-toggle="collapse" tells Bootstrap to use the Collapse plugin -->
+                                    <!-- data-bs-target points at the panel id to open/close -->
+                                    <!-- aria-controls ties the button to that panel -->
+                                    <!-- aria-expanded reflects current state -->
+
+                                    Accordion
+                                </button>
+
+                                <p class="ms-1 mt-4">Accordion organizes content in collapsible sections for better user
+                                    experience</p>
+
+                            </div>
+
+                            <div id="collapseOne" class="accordion-collapse col-md-6 collapse show"
+                                data-bs-parent="#accordionExample">
+
+                                <img class="" style="width: 100%; max-height: 20rem;"
+                                        src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4NHw&ixlib=rb-4.1.0&q=80&w=1080"
+                                        alt="">
+
+                            </div>
+
+                        </div>
+
+                        <!-- TEXT 2 IMG 2 -->
+                        <div
+                            class="accordion-item d-md-flex flex-row-reverse border border-0 d-block align-items-center">
+
+                            <div class="accordion-header col-md-6">
+
+                                <button class="border-0 fs-4 fw-bold text-dark bg-white" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseOne">
+                                    Close Button
+                                </button>
+
+                                <p class="ms-1 mt-4">Close button is used to dismiss alerts or modals.</p>
+
+                            </div>
+
+                            <div id="collapseTwo" class="accordion-collapse col-md-6 collapse show"
+                                data-bs-parent="#accordionExample">
+
+                                <img class="img-fluid" style="width: 100%; max-height: 20rem;"
+                                        src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4NXw&ixlib=rb-4.1.0&q=80&w=1080"
+                                        alt="">
+
+                            </div>
+
+                        </div>
+
+                        <!-- TEXT 3 IMG 3 -->
+                        <div
+                            class="accordion-item d-md-flex flex-row-reverse border border-0 d-block align-items-center">
+
+                            <div class="accordion-header col-md-6">
+
+                                <button class="border-0 fs-4 fw-bold text-dark bg-white" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseOne">
+                                    Carousel
+                                </button>
+
+                                <p class="ms-1 mt-4">Carousel allows you to showcase multiple images or content in a
+                                    rotating manner.</p>
+
+                            </div>
+
+                            <div id="collapseThree" class="accordion-collapse col-md-6 collapse show"
+                                data-bs-parent="#accordionExample">
+
+                                <img class="img-fluid" style="width: 100%; max-height: 20rem;"
+                                        src="https://images.unsplash.com/photo-1652449823136-b279fbe5dfd3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4M3w&ixlib=rb-4.1.0&q=80&w=1080"
+                                        alt="">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- TEDA MEDA BOX WITH TEXT -->
+
+    <section class="container scale py-5 px-4 px-md-0">
+
+        <div class="under " style="background-color: #aea7bf;">
+
+            <div class="upper row align-items-center justify-content-center py-5 ">
+
+                <div class="left col-md-9 col-12">
+
+                    <h1 class="fs-3">Boost Your Website Design with Bootstrap Features</h1>
+
+                    <p>Explore a wide range of essential Bootstrap components to enhance your website's user experience.
+                    </p>
+
+                </div>
+
+                <div class="right col-md-2 col-12 text-center">
+
+                    <button class="bottonb btn btn-danger rounded-0">Get Start</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ACCORDION WITH TEXT 2 -->
+    <!-- pehle jo kiya swap direction of text and image -->
+
+    <section id="acor my-4 py-4">
+
+        <div class="container acol">
+
+            <div class="row">
+
+                <div class="col-lg-10 offset-lg-1">
+
+                    <div class="accordion " id="accordionExample">
+
+                        <div class="accordion-item d-md-flex border border-0 align-items-center">
+
+                            <div class="accordion-header col-md-6">
+
+                                <button class="border-0 fs-4 fw-bold text-dark bg-white" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
+                                    aria-controls="collapseOne">
+                                    Accordion
+                                </button>
+
+                                <p class="ms-1 mt-4">Accordion allows you to toggle the display of content sections.</p>
+
+                            </div>
+
+                            <div id="collapseOne" class="accordion-collapse col-md-6 collapse show"
+                                data-bs-parent="#accordionExample">
+
+                                <img class="img-fluid" style="width: 100%; max-height: 20rem;"
+                                        src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4NHw&ixlib=rb-4.1.0&q=80&w=1080"
+                                        alt="">
+                            </div>
+
+                        </div>
+
+                        <div class="accordion-item d-md-flex border border-0 d-block align-items-center">
+
+                            <div class="accordion-header col-md-6">
+
+                                <button class="border-0 fs-4 fw-bold text-dark bg-white" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                    Modal
+                                </button>
+                                <p class="ms-1 mt-4">A modal is a popup or dialog box that appears on top of the current
+                                    page. It's commonly used for: Alerts and confirmations, Forms and input dialogs,
+                                    Displaying additional information without leaving the page</p>
+
+                            </div>
+
+                            <div id="collapseTwo" class="accordion-collapse col-md-6 collapse show"
+                                data-bs-parent="#accordionExample">
+
+                                <img class="img-fluid" style="width: 100%; max-height: 20rem;"
+                                        src="https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4Nnw&ixlib=rb-4.1.0&q=80&w=1080"
+                                        alt="">
+
+                            </div>
+
+                        </div>
+
+                        <div class="accordion-item d-md-flex border border-0 d-block align-items-center">
+
+                            <div class="accordion-header col-md-6">
+
+                                <button class="border-0 fs-4 fw-bold text-dark bg-white" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">
+                                    Pagination
+                                </button>
+                                <p class="ms-1 mt-4">pagination is a UI component used to split content (like tables or
+                                    lists) into multiple pages, allowing users to navigate between them.</p>
+
+                            </div>
+
+                            <div id="collapseThree" class="accordion-collapse col-md-6 collapse show"
+                                data-bs-parent="#accordionExample">
+
+                                <img class="img-fluid" style="width: 100%; max-height: 20rem;"
+                                        src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4NXw&ixlib=rb-4.1.0&q=80&w=1080"
+                                        alt="">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PESSE NIKALOO -->
+
+    <section id="plan" class="container py-5 my-5 text-center">
+
+        <h3 class="text-center mb-5">Choose the plan that suits you best!</h3>
+
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+            <label class="btn btn-outline-danger fw-bold rounded-0 border-2" for="btnradio1">Monthly</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn btn-outline-danger fw-bold rounded-0 border-2" for="btnradio2">Yearly</label>
+
+        </div>
+
+        <div class="card-group d-block d-md-flex my-5 gap-5">
+
+            <div class="card my-3 border-dark">
+
+                <div class="card-body">
+
+                    <h5 class="card-title">Basic Plan</h5>
+                    <h1 class="card-tittle">$9.99/month</h1>
+                    <h6 class="card-text">$99/year</h6>
+                    <p class="card-text text-start ms-5 f00vw;s-6 py-1"><i class="fa-solid fa-check me-2"></i>Feature 1 of
+                        Basic Plan</p>
+                    <p class="card-text text-start ms-5 fs-6 py-1"><i class="fa-solid fa-check me-2"></i>Feature 2 of
+                        Basic Plan</p>
+                    <p class="card-text text-start ms-5 fs-6 py-1"><i class="fa-solid fa-check me-2"></i>Feature 3 of
+                        Basic Plan</p>
+                    <button class="hover-slide1 btn btn-outline-danger rounded-0 fw-bold mt-5 border-2 w-100">Sign Up
+                        Now</button>
+
+                </div>
+
+            </div>
+
+            <div class="card my-3 border-dark" style="background-color: #ccc7d6;">
+
+                <div class="card-body">
+
+                    <h5 class="card-title">Standard Plan</h5>
+                    <h1 class="card-tittle">$19.99/month</h1>
+                    <h6 class="card-text">$199/year</h6>
+                    <p class="card-text text-start ms-5 fs-6 py-1"><i class="fa-solid fa-check me-2"></i>Feature 1 of
+                        Basic Plan</p>
+                    <p class="card-text text-start ms-5 fs-6 py-1"><i class="fa-solid fa-check me-2"></i>Feature 2 of
+                        Basic Plan</p>
+                    <p class="card-text text-start ms-5 fs-6 py-1"><i class="fa-solid fa-check me-2"></i>Feature 3 of
+                        Basic Plan</p>
+                    <button class="hover-slide btn btn-danger rounded-0 fw-bold mt-5 w-100">Sign Up Now</button>
+
+                </div>
+
+            </div>
+
+            <div class="card my-3 border-dark" style="background-color: #aea7bf;">
+
+                <div class="card-body">
+
+                    <h5 class="card-title">Premium Plan</h5>
+                    <h1 class="card-tittle">$29.99/month</h1>
+                    <h6 class="card-text">$299/year</h6>
+                    <p class="card-text text-start ms-5 fs-6 py-1"><i class="fa-solid fa-check me-2"></i>Feature 1 of
+                        Basic Plan</p>
+                    <p class="card-text text-start ms-5 fs-6 py-1"><i class="fa-solid fa-check me-2"></i>Feature 2 of
+                        Basic Plan</p>
+                    <p class="card-text text-start ms-5 fs-6 py-1"><i class="fa-solid fa-check me-2"></i>Feature 3 of
+                        Basic Plan</p>
+                    <button class="hover-slide btn btn-danger rounded-0 fw-bold mt-5 w-100">Sign Up Now</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HEADING AND FOLDING PAPER THINGYS?? -->
+
+    <section class="container d-block d-md-flex justify-content-evenly" id="discover">
+
+        <div class="left-one col-12 col-md-6">
+
+            <div class="top">
+                <!-- position: sticky keeps the element fixed in place once you scroll past it, until its parent scroll container ends -->
+
+                <h1 class="fs-2">Discover the Power of Our Products</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum
+                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+                    vitae erat.</p>
+                <botton class="hover-slide btn btn-danger mb-5">Main action</botton>
+
+            </div>
+
+        </div>
+
+        <ul class="right col-12 col-md-6">
+
+            <li class="same mb-4">
+
+                <div class="box d-flex justify-content-between">
+
+                    <h2>Choose a Template</h2>
+                    <h1>01</h1>
+
+                </div>
+
+                <p>Browse through our collection of professionally designed templates and choose the one that best fits
+                    your needs.</p>
+
+            </li>
+
+            <li class="same2 mb-4">
+
+                <div class="box d-flex justify-content-between">
+
+                    <h2>Customize Your Design</h2>
+                    <h1>02</h1>
+
+                </div>
+
+                <p>Personalize the chosen template by adding your own content, images, and branding to make it unique to
+                    your brand.</p>
+
+            </li>
+
+            <li class="same mb-4">
+
+                <div class="box d-flex justify-content-between">
+
+                    <h2>Preview and Adjust</h2>
+                    <h1>03</h1>
+
+                </div>
+
+                <p>Preview your customized design to see how it looks. Make any necessary adjustments to ensure it meets
+                    your expectations.</p>
+
+            </li>
+
+            <li class="same2">
+
+                <div class="box d-flex justify-content-between">
+
+                    <h2>Publish Your Website</h2>
+                    <h1>04</h1>
+
+                </div>
+
+                <p>Once you are satisfied with the design, simply hit the publish button to make your website live for
+                    the world to see.</p>
+
+            </li>
+
+        </ul>
+
+    </section>
+
+    <!-- CUSTOMER REVIEWS -->
+
+    <section class="container my-5 py-5" id="testimonials">
+
+        <h2 class="text-center">Testimonials</h2>
+        <p class="text-center mt-4">Read what our satisfied customers have to say about us.</p>
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+
+            <div class="col">
+
+                <div class="card card-main border-0" style="background-color: #aea7bf;">
+
+                    <div class="card-body card-inside border-0" style="background-color: #ccc7d6">
+
+                        <div class="box d-flex">
+
+                            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4M3w&ixlib=rb-4.1.0&q=80&w=1080"
+                                class="rounded-circle me-2" style="width:40px; height:40px;" alt="">
+
+                            <div>
+
+                                <h5 class="card-title">John Doe</h5>
+                                <p>CEO, Company ABC</p>
+
+                            </div>
+
+                        </div>
+
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col">
+
+                <div class="card card-main border-0" style="background-color: #aea7bf;">
+
+                    <div class="card-body card-inside border-0" style="background-color: #ccc7d6">
+
+                        <div class="box d-flex">
+
+                            <img src="https://images.unsplash.com/photo-1581297848080-c84ac0438210?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4M3w&ixlib=rb-4.1.0&q=80&w=1080"
+                                class="rounded-circle me-2" style="width:40px; height:40px;" alt="">
+
+                            <div>
+
+                                <h5 class="card-title">Jane Smith</h5>
+                                <p>Marketing Manager, XYZ Inc.</p>
+
+                            </div>
+
+                        </div>
+
+                        <p class="card-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col">
+
+                <div class="card card-main border-0" style="background-color: #aea7bf;">
+
+                    <div class="card-body card-inside border-0" style="background-color: #ccc7d6">
+
+                        <div class="box d-flex">
+
+                            <img src="https://images.unsplash.com/photo-1590735213920-68192a487bc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4NHw&ixlib=rb-4.1.0&q=80&w=1080"
+                                class="rounded-circle me-2" style="width:40px; height:40px;" alt="">
+
+                            <div>
+
+                                <h5 class="card-title">Alice Johnson</h5>
+                                <p>Designer, Design Co.</p>
+
+                            </div>
+
+                        </div>
+
+                        <p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                            dolore eu fugiat nulla pariatur.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col">
+
+                <div class="card card-main border-0" style="background-color: #aea7bf;">
+
+                    <div class="card-body card-inside border-0" style="background-color: #ccc7d6">
+
+                        <div class="box d-flex">
+
+                            <img src="https://images.unsplash.com/photo-1554780336-390462301acf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTc0NzkwMDI4M3w&ixlib=rb-4.1.0&q=80&w=1080"
+                                class="rounded-circle me-2" style="width:40px; height:40px;" alt="">
+
+                            <div>
+
+                                <h5 class="card-title">Michael Brown</h5>
+                                <p>Developer, Tech Solutions Ltd.</p>
+
+                            </div>
+
+                        </div>
+
+                        <p class="card-text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                            deserunt mollit anim id est laborum.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT US -->
+
+    <section class="container my-5 py-5" id="contact">
+
+        <h5 class="text-center">Our team is always ready to assist you.</h5>
+        <h2 class="text-center">Contact Us</h2>
+        <h6 class="text-center">Feel free to reach out to us for any inquiries or feedback.</h6>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 ">
+
+            <div class="col text-center py-5">
+
+                <div class="card border-0">
+
+                    <i class="fa-solid fa-envelope fa-2xl mt-5"></i>
+
+                    <div class="card-body">
+
+                        <h5 class="card-title py-2">Email</h5>
+                        <p class="card-text">You can also visit our office during working hours.</p>
+                        <small>info@example.com</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col text-center py-5">
+
+                <div class="card border-0">
+
+                    <i class="fa-solid fa-phone fa-2xl mt-5"></i>
+
+                    <div class="card-body">
+
+                        <h5 class="card-title py-2">Phone</h5>
+                        <p class="card-text">Follow us on social media for updates and news.</p>
+                        <small>+1 (123) 456-7890</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col text-center py-5">
+
+                <div class="card border-0">
+
+                    <i class="fa-solid fa-location-dot fa-2xl mt-5"></i>
+
+                    <div class="card-body">
+
+                        <h5 class="card-title py-2">Office</h5>
+                        <p class="card-text">We look forward to hearing from you!</p>
+                        <small>123 Street Name, City, Country</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FORM -->
+
+    <section class="form py-5 my-5" id="form">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="left col-lg-4 text-center text-lg-start">
+
+                    <h6>Connecting you with the world, one teleport at a time</h6>
+                    <h1>Contact us</h1>
+                    <span><i class="fa-solid fa-envelope fa-xl mt-5 me-2"></i>info@website.com</span>
+                    <br>
+                    <span><i class="fa-solid fa-phone fa-xl mt-5 me-2"></i>+69696969</span>
+                    <br>
+                    <span><i class="fa-solid fa-location-dot fa-xl mt-5 me-2"></i>Ludhiana, Punjab  </span>
+
+                </div>
+
+                <div class="col-lg-8">
+
+                    <form >
+
+                        <div class="mb-3">
+
+                            <label for="exampleInputText" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Name" id="exampleInputText"
+                                aria-describedby="textHelp">
+                            <span id="name-error" class="text-danger my-1"></span>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email"
+                                id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                            <span id="email-error" class="text-danger my-1"></span>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                            <textarea class="form-control" placeholder="Enter your massage"
+                                id="exampleFormControlTextarea1" rows="3"></textarea>
+
+                        </div>
+
+                        <div class="mb-3 form-check">
+
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">I accept the Terms</label>
+
+                        </div>
+
+                        <button type="submit" class="botton btn btn-dark">Submit</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <!-- <footer class="container my-5 py-5">
+
+        <div class="container">
+
+            <div class="row justify-content-center">
+
+                <div class="left col-14 col-md-6">
+
+                    <h1><img src="assets/image/logo1.png" style="width: 10rem;" alt=""></h1>
+                    <h6 class="my-4">Bootstrap form validation</h6>
+
+                    <form class="row g-3">
+
+                        <div class="col-auto">
+
+                            <label for="email" class="visually-hidden">Password</label>
+                            <input type="password" class="form-control border-dark border-1 rounded-0" id="email"
+                                placeholder="Enter your email">
+
+                        </div>
+
+                        <div class="col-auto">
+
+                            <button type="button"
+                                class="btn btn-outline-danger mb-3 rounded-0 border-2 fw-bold">Subscribe to
+                                Newsletter</button>
+
+                        </div>
+
+                    </form>
+
+                    <small>Stay updated with our latest news and offers.</small>
+
+                </div>
+
+                <div class="right col-14 col-md-5 d-flex mt-5 mt-md-0 justify-content-between">
+
+                    <div>
+
+                        <h5 class="ms-4">Company</h5>
+                        <ul>
+                            <li class="mb-2">About Us</li>
+                            <li class="mb-2">Services</li>
+                            <li class="mb-2">Contact Us</li>
+                            <li class="mb-2">FAQs</li>
+                            <li class="mb-2">Blog</li>
+                        </ul>
+                    </div>
+
+                    <div>
+
+                        <h5 class="ms-4">Explore</h5>
+                        <ul>
+                            <li class="mb-2">Careers</li>
+                            <li class="mb-2">Terms of Service</li>
+                            <li class="mb-2">Privacy Policy</li>
+                            <li class="mb-2">Cookies Policy</li>
+                            <li class="mb-2">Sitemap</li>
+                        </ul>
+
+                    </div>
+
+                    <div>
+
+                        <h5 class="ms-4">Follow Us</h5>
+                        <ul>
+
+                            <li class="mb-2">
+                                <a href=""><i class="fa-brands fa-square-facebook fa-xl"
+                                        style="color: #000000;"></i></a>
+                                <a href="" class="text-decoration-none text-dark ms-1">Facebook</a>
+
+                            </li>
+
+                            <li class="mb-2">
+                                <a href=""><i class="fa-brands fa-instagram fa-xl" style="color: #000000;"></i></a>
+                                <a href="" class="text-decoration-none text-dark ms-1">Instagram</a>
+
+                            </li>
+
+                            <li class="mb-2">
+                                <a href=""><i class="fa-brands fa-twitter fa-xl" style="color: #000000;"></i></a>
+                                <a href="" class="text-decoration-none text-dark ms-1">X</a>
+
+                            </li>
+
+                            <li class="mb-2">
+                                <a href=""><i class="fa-brands fa-linkedin fa-xl" style="color: #000000;"></i></a>
+                                <a href="" class="text-decoration-none text-dark ms-1">LinkedIn</a>
+
+                            </li>
+
+                            <li class="mb-2">
+                                <a href=""><i class="fa-brands fa-youtube fa-xl" style="color: #000000;"></i></a>
+                                <a href="" class="text-decoration-none text-dark ms-1">Youtube</a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="container d-flex justify-content-between mt-4 pt-4" style="border-top: 1px solid #000;">
+
+            <label for="">Connect with us on social media for more updates.</label>
+
+            <ul class="d-flex justify-content-between">
+
+                <li>/privacy-policy</li>
+                <li>/terms-of-service</li>
+                <li>/cookies-policy</li>
+
+            </ul>
+
+        </div>
+        
+    </footer> -->
+
+</body>
+
+</html>
